@@ -21,10 +21,9 @@ body {
    justify-content: center;
    align-items: center;
    background: #000;
-
 }
 
-.glow-on-hover {
+.generate-button {
    width: 250px;
    height: 50px;
    border: none;
@@ -39,9 +38,10 @@ body {
    font-weight: 600;
    font-size: 30px;
    letter-spacing: 3px;
+   transition: .2s;
 }
 
-.glow-on-hover:before {
+.generate-button:before {
    content: '';
    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
    position: absolute;
@@ -51,25 +51,16 @@ body {
    z-index: -1;
    width: calc(100% + 4px);
    height: calc(100% + 4px);
-   filter: blur(20px); 
+   filter: blur(20px);
    animation: glowing 20s linear infinite;
-   transition: opacity .3s ease-in-out;
    border-radius: 10px;
 }
 
-.glow-on-hover:active {
-   color: #000
+.generate-button:active {
+   color: #000;
 }
 
-.glow-on-hover:active:after {
-   background: transparent;
-}
-
-.glow-on-hover:hover:before {
-   opacity: 1;
-}
-
-.glow-on-hover:after {
+.generate-button:after {
    z-index: -1;
    content: '';
    position: absolute;
@@ -79,6 +70,12 @@ body {
    left: 0;
    top: 0;
    border-radius: 10px;
+   opacity: 1;
+   transition: .2s;
+}
+
+.generate-button:active:after {
+   opacity: 0;
 }
 
 @keyframes glowing {
