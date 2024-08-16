@@ -1,0 +1,93 @@
+* {
+   margin: 0;
+   padding: 0;
+   width: auto;
+}
+
+@font-face {
+   font-family: ChronicleDisplay-Roman;
+   src: url('../fonts/chronicledisplay-roman.eot');
+   src: url('../fonts/chronicledisplay-roman.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/chronicledisplay-roman.woff2') format('woff2'),
+      url('../fonts/chronicledisplay-roman.woff') format('woff'),
+      url('../fonts/chronicledisplay-roman.ttf') format('truetype'),
+      url('../fonts/chronicledisplay-roman.svg#chronicledisplay-roman') format('svg');
+}
+
+body {
+   height: 100vh;
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+   background: #000;
+}
+
+.generate-button {
+   width: 250px;
+   height: 50px;
+   border: none;
+   outline: none;
+   color: #fff;
+   background: #111;
+   cursor: pointer;
+   position: relative;
+   z-index: 0;
+   border-radius: 10px;
+   font-family: ChronicleDisplay-Roman, serif;
+   font-weight: 600;
+   font-size: 30px;
+   letter-spacing: 3px;
+   transition: .2s;
+}
+
+.generate-button:before {
+   content: '';
+   background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+   position: absolute;
+   top: -2px;
+   left: -2px;
+   background-size: 400%;
+   z-index: -1;
+   width: calc(100% + 4px);
+   height: calc(100% + 4px);
+   filter: blur(20px);
+   animation: glowing 20s linear infinite;
+   border-radius: 10px;
+}
+
+.generate-button:active {
+   color: #000;
+}
+
+.generate-button:after {
+   z-index: -1;
+   content: '';
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   background: #111;
+   left: 0;
+   top: 0;
+   border-radius: 10px;
+   opacity: 1;
+   transition: .2s;
+}
+
+.generate-button:active:after {
+   opacity: 0;
+}
+
+@keyframes glowing {
+   0% {
+      background-position: 0 0;
+   }
+
+   50% {
+      background-position: 400% 0;
+   }
+
+   100% {
+      background-position: 0 0;
+   }
+}
